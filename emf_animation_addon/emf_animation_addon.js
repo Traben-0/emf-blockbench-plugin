@@ -170,9 +170,7 @@
 
             setTimeout(load, 0)
         },
-        onunload() {
-            unload()
-        }
+        onunload : unload
     })
 
     function load() {
@@ -200,7 +198,11 @@
                 optifineAnimationVariables.autocomplete.push(boolean)
             }
         }
-        setTimeout(() => Panels.cem_animation.inside_vue.change(), 0)
+        setTimeout(() => {
+            if (Format.id === "optifine_entity") {
+                Panels.cem_animation.inside_vue.change()
+            }
+        }, 0)
     }
 
     function unload() {
